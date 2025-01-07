@@ -1,4 +1,4 @@
-package com.example.robloxcms;
+package com.example.robloxcms.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,32 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
+    // Méthode pour afficher la page d'accueil
     @GetMapping("/")
-    public String homePage(Model model) {
-        return "index"; // Retourne le fichier index.html dans le dossier src/main/resources/templates
+    public String home(Model model) {
+        // Si tu veux passer des données à la page, tu peux le faire via le model
+        model.addAttribute("message", "Bienvenue sur Roblox Wiki!");
+        return "index";  // Ce nom correspond à index.html dans src/main/resources/templates
     }
 
+    // Méthode pour afficher la page Jeux
     @GetMapping("/jeux")
-    public String jeuxPage(Model model) {
-        model.addAttribute("pageTitle", "Jeux Roblox");
-        return "jeux"; // Affiche la page des jeux
-    }
-
-    @GetMapping("/comptes")
-    public String comptesPage(Model model) {
-        model.addAttribute("pageTitle", "Comptes Célèbres");
-        return "comptes"; // Affiche la page des comptes
-    }
-
-    @GetMapping("/objets")
-    public String objetsPage(Model model) {
-        model.addAttribute("pageTitle", "Objets Roblox");
-        return "objets"; // Affiche la page des objets
-    }
-
-    @GetMapping("/evenements")
-    public String evenementsPage(Model model) {
-        model.addAttribute("pageTitle", "Événements Roblox");
-        return "evenements"; // Affiche la page des événements
+    public String jeux(Model model) {
+        // Tu peux ajouter des données à afficher dans la page jeux.html
+        model.addAttribute("message", "Liste des jeux Roblox");
+        return "jeux";  // Ce nom correspond à jeux.html dans src/main/resources/templates
     }
 }
