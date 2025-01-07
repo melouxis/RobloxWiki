@@ -1,0 +1,38 @@
+package com.example.robloxcms;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MainController {
+
+    @GetMapping("/")
+    public String homePage(Model model) {
+        return "index"; // Retourne le fichier index.html dans le dossier src/main/resources/templates
+    }
+
+    @GetMapping("/jeux")
+    public String jeuxPage(Model model) {
+        model.addAttribute("pageTitle", "Jeux Roblox");
+        return "jeux"; // Affiche la page des jeux
+    }
+
+    @GetMapping("/comptes")
+    public String comptesPage(Model model) {
+        model.addAttribute("pageTitle", "Comptes Célèbres");
+        return "comptes"; // Affiche la page des comptes
+    }
+
+    @GetMapping("/objets")
+    public String objetsPage(Model model) {
+        model.addAttribute("pageTitle", "Objets Roblox");
+        return "objets"; // Affiche la page des objets
+    }
+
+    @GetMapping("/evenements")
+    public String evenementsPage(Model model) {
+        model.addAttribute("pageTitle", "Événements Roblox");
+        return "evenements"; // Affiche la page des événements
+    }
+}
